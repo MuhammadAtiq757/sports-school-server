@@ -74,19 +74,19 @@ async function run() {
 
 
 
-    // app.post('/addclass', async (req, res) => {
-    //   const adding = req.body;
-    //   const result = await addingCollection.insertOne(adding)
-    //   res.send(result)
-    //   // console.log(adding);
-    // })
-
-
-    app.get('/selectedClassData', async (req, res) => {
-      console.log('usereee')
-      const result = await selectedCollection.find().toArray();
-      res.send(result);
+    app.post('/addclass', async (req, res) => {
+      const adding = req.body;
+      const result = await addingCollection.insertOne(adding)
+      res.send(result)
+      // console.log(adding);
     })
+
+
+    // app.get('/selectedClassData', async (req, res) => {
+    //   console.log('usereee')
+    //   const result = await selectedCollection.find().toArray();
+    //   res.send(result);
+    // })
 
 
     app.post('/selectedClassData', async (req, res) => {
