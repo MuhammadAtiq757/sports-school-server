@@ -47,30 +47,32 @@ async function run() {
       res.send(result);
     })
 
-    // app.get('/myclass', async (req, res) => {
-    //   console.log(req.query.email);
-    //   let query = {}
-    //   if (req.query?.email) {
-    //     query = { email: req.query.email }
+    app.get('/myclass', async (req, res) => {
+      console.log(req.query.email);
+      let query = {}
+      if (req.query?.email) {
+        query = { email: req.query.email }
+      }
+      const result = await addingCollection.find(query).toArray();
+      console.log(result)
+      res.send(result);
+    })
+
+
+
+    // app.post('/users', async (req, res) => {
+    //   const user = req.body;
+    //   const query = { email: user.email }
+    //   const existingUser = await userCollection.findOne(query);
+    //   if (existingUser) {
+    //     return res.send({ message: 'user already exists' })
     //   }
-    //   const result = await addingCollection.find(query).toArray();
-    //   console.log(result)
-    //   res.send(result);
+    //   const result = await userCollection.insertOne(user);
+    //   res.send(result)
+
     // })
 
 
-
-    app.post('/users', async (req, res) => {
-      const user = req.body;
-      const query = { email: user.email }
-      const existingUser = await userCollection.findOne(query);
-      if (existingUser) {
-        return res.send({ message: 'user already exists' })
-      }
-      const result = await userCollection.insertOne(user);
-      res.send(result)
-
-    })
 
     app.post('/addclass', async (req, res) => {
       const adding = req.body;
