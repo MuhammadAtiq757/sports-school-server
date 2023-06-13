@@ -25,14 +25,14 @@ async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
     // await client.connect();
-    const userCollection = client.db('sports').collection('users')
-    const popularClassCollection = client.db('sports').collection('popular')
+    // const userCollection = client.db('sports').collection('users')
+    // const popularClassCollection = client.db('sports').collection('popular')
 
-    const popularInsCollection = client.db('sports').collection('popularins')
+    // const popularInsCollection = client.db('sports').collection('popularins')
 
-    const addingCollection = client.db('sports').collection('addclass')
+    // const addingCollection = client.db('sports').collection('addclass')
 
-    const selectedCollection = client.db('sports').collection('selected')
+    // const selectedCollection = client.db('sports').collection('selected')
 
 
 
