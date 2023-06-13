@@ -82,18 +82,18 @@ async function run() {
     })
 
 
-    // app.get('/selectedClassData', async (req, res) => {
-    //   console.log('usereee')
-    //   const result = await selectedCollection.find().toArray();
-    //   res.send(result);
-    // })
-
-
-    app.post('/selectedClassData', async (req, res) => {
-      const user = req.body;
-      const result = await selectedCollection.insertOne(user);
+    app.get('/selectedClassData', async (req, res) => {
+      console.log('usereee')
+      const result = await selectedCollection.find().toArray();
       res.send(result);
     })
+
+
+    // app.post('/selectedClassData', async (req, res) => {
+    //   const user = req.body;
+    //   const result = await selectedCollection.insertOne(user);
+    //   res.send(result);
+    // })
 
 
     app.get('/popular/instructor/:email', async (req, res) => {
