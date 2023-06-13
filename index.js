@@ -89,21 +89,21 @@ async function run() {
     })
 
 
-    // app.post('/selectedClassData', async (req, res) => {
-    //   const user = req.body;
-    //   const result = await selectedCollection.insertOne(user);
-    //   res.send(result);
-    // })
-
-
-    app.get('/popular/instructor/:email', async (req, res) => {
-      const email = req.params.email;
-      console.log();
-      const query = { instructorEmail: email }
-      const user = await popularClassCollection.find(query).toArray();
-      const result = { email: user?.role === 'approved' }
-      res.send(result)
+    app.post('/selectedClassData', async (req, res) => {
+      const user = req.body;
+      const result = await selectedCollection.insertOne(user);
+      res.send(result);
     })
+
+
+    // app.get('/popular/instructor/:email', async (req, res) => {
+    //   const email = req.params.email;
+    //   console.log();
+    //   const query = { instructorEmail: email }
+    //   const user = await popularClassCollection.find(query).toArray();
+    //   const result = { email: user?.role === 'approved' }
+    //   res.send(result)
+    // })
 
 
     app.get('/users/admin/:email', async (req, res) => {
