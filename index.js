@@ -36,16 +36,16 @@ async function run() {
 
 
 
-    // app.get('/popular', async (req, res) => {
-    //   const result = await popularClassCollection.find().toArray();
-    //   res.send(result)
-    // })
-
-    app.get('/users', async (req, res) => {
-      console.log('usereee')
-      const result = await userCollection.find().toArray();
-      res.send(result);
+    app.get('/popular', async (req, res) => {
+      const result = await popularClassCollection.find().toArray();
+      res.send(result)
     })
+
+    // app.get('/users', async (req, res) => {
+    //   console.log('usereee')
+    //   const result = await userCollection.find().toArray();
+    //   res.send(result);
+    // })
 
     app.get('/myclass', async (req, res) => {
       console.log(req.query.email);
