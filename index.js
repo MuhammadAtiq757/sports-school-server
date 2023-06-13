@@ -41,22 +41,22 @@ async function run() {
       res.send(result)
     })
 
-    // app.get('/users', async (req, res) => {
-    //   console.log('usereee')
-    //   const result = await userCollection.find().toArray();
-    //   res.send(result);
-    // })
-
-    app.get('/myclass', async (req, res) => {
-      console.log(req.query.email);
-      let query = {}
-      if (req.query?.email) {
-        query = { email: req.query.email }
-      }
-      const result = await addingCollection.find(query).toArray();
-      console.log(result)
+    app.get('/users', async (req, res) => {
+      console.log('usereee')
+      const result = await userCollection.find().toArray();
       res.send(result);
     })
+
+    // app.get('/myclass', async (req, res) => {
+    //   console.log(req.query.email);
+    //   let query = {}
+    //   if (req.query?.email) {
+    //     query = { email: req.query.email }
+    //   }
+    //   const result = await addingCollection.find(query).toArray();
+    //   console.log(result)
+    //   res.send(result);
+    // })
 
 
 
