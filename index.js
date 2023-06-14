@@ -1,7 +1,7 @@
 const express = require('express');
+require('dotenv').config()
 const cors = require('cors');
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
-require('dotenv').config()
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -34,6 +34,14 @@ async function run() {
 
     const selectedCollection = client.db('sports').collection('selected')
 
+
+    app.delete('/deletedata/:id', async (req, res) => {
+      const id = req.params.id;
+      console.log(id);
+      const query = { _id: (id )}
+      const result = await selectedCollection.deleteOne(query);
+      res.send(result);
+    })
 
 
     app.get('/popular', async (req, res) => {
@@ -83,7 +91,7 @@ async function run() {
 
 
     app.get('/selectedClassData', async (req, res) => {
-      console.log('usereee')
+     
       const result = await selectedCollection.find().toArray();
       res.send(result);
     })
@@ -106,13 +114,13 @@ async function run() {
     })
 
 
-    // app.get('/users/admin/:email', async (req, res) => {
-    //   const email = req.params.email;
-    //   const query = { email: email }
-    //   const user = await userCollection.findOne(query);
-    //   const result = { admin: user?.role === 'admin' }
-    //   res.send(result)
-    // })
+    app.get('/users/admin/:email', async (req, res) => {
+      const email = req.params.email;
+      const query = { email: email }
+      const user = await userCollection.findOne(query);
+      const result = { admin: user?.role === 'admin' }
+      res.send(result)
+    })
 
 
 
@@ -221,6 +229,7 @@ async function run() {
         res.status(500).json({ error: 'internal server error' })
       }
 
+   
 
 
      app.get("/classStatus/:status", async (req, res) => {
@@ -233,7 +242,7 @@ async function run() {
 
 
 
-  
+   
 
     
       // const result = await popularInsCollection.find().toArray();
